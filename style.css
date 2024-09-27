@@ -1,0 +1,322 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Primary */
+  --soft-red: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+
+  /* Neutral */
+  --dark-brown: hsl(25, 47%, 15%);
+  --medium-brown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --very-pale-orange: hsl(33, 100%, 98%);
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.125rem;
+  background-color: var(--cream);
+  color: var(--dark-brown);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Header (Balance Section) */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--soft-red);
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  margin-bottom: 1.25rem;
+  color: white;
+}
+
+#balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.balance-info {
+  text-align: left;
+}
+
+#balance p {
+  margin-bottom: 0.3125rem;
+  font-size: 0.875rem;
+  color: var(--cream);
+}
+
+#balance h2 {
+  font-size: 2.25rem;
+}
+
+.balance-logo {
+  width: 2.5rem;
+  height: auto;
+}
+
+/* Spending Card */
+.card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  height: auto;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-brown);
+}
+
+.chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 14rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.chart-bar {
+  width: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.bar {
+  width: 100%;
+  background-color: var(--soft-red);
+  border-radius: 0.25rem 0.25rem 0 0;
+  transition: background-color 0.3s;
+}
+
+.bar:hover {
+  opacity: 0.5;
+}
+
+.current-day {
+  background-color: var(--cyan);
+}
+
+.day-label {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--medium-brown);
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: 120%;
+  background-color: var(--dark-brown);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.3s, bottom 0.3s;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.chart-bar:hover .tooltip {
+  opacity: 1;
+  bottom: 140%;
+}
+
+/* Total Section */
+.total {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-month p {
+  color: var(--medium-brown);
+}
+
+.total-month h2 {
+  font-size: 2rem;
+  color: var(--dark-brown);
+}
+
+.total-difference {
+  text-align: right;
+  color: var(--medium-brown);
+}
+
+.total-difference p {
+  font-size: 1rem;
+  color: var(--dark-brown);
+  font-weight: 700;
+}
+
+/* Responsive design */
+/* General mobile adjustments for small screens (up to 375px wide) */
+@media (max-width: 23.4375rem) {
+  body {
+    font-size: 1rem;
+    padding: 0 0.625rem; 
+  }
+
+  main {
+    max-width: 20rem; 
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  #balance h2 {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .chart {
+    height: 10rem;
+  }
+
+  .chart-bar {
+    width: 1.5rem;
+  }
+
+  .tooltip {
+    font-size: 0.75rem;
+  }
+
+  .total-month h2 {
+    font-size: 1.75rem;
+  }
+
+  .total-difference p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Medium screen sizes (376px to 768px) */
+@media (min-width: 23.5rem) and (max-width: 48rem) { 
+  body {
+    font-size: 1.125rem; 
+    padding: 0 1rem; 
+  }
+
+  main {
+    max-width: 24rem; 
+  }
+
+  .header {
+    padding: 1.25rem; 
+  }
+
+  #balance h2 {
+    font-size: 2.25rem; 
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .chart {
+    height: 12rem;
+  }
+
+  .chart-bar {
+    width: 1.75rem;
+  }
+
+  .tooltip {
+    font-size: 0.875rem;
+  }
+
+  .total-month h2 {
+    font-size: 2rem;
+  }
+
+  .total-difference p {
+    font-size: 1.25rem;
+  }
+}
+
+/* Large screen sizes (769px to 1024px) */
+@media (min-width: 48.0625rem) and (max-width: 64rem) { 
+  body {
+    font-size: 1.25rem; 
+    padding: 0 1.5rem;
+  }
+
+  main {
+    max-width: 32rem; 
+  }
+
+  .header {
+    padding: 1.5rem;
+  }
+
+  #balance h2 {
+    font-size: 2.5rem; 
+  }
+
+  .card {
+    padding: 2.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .chart {
+    height: 14rem;
+  }
+
+  .chart-bar {
+    width: 2rem;
+  }
+
+  .tooltip {
+    font-size: 1rem;
+  }
+
+  .total-month h2 {
+    font-size: 2.25rem;
+  }
+
+  .total-difference p {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+  
